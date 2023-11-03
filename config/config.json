@@ -1,3 +1,5 @@
 {
-  "root_path": "/root"
+  "root_path": "/root",
+  "api_url": "http://127.0.0.1:3000",
+  "api_type": "ncm_api"
 }

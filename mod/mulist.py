@@ -1,6 +1,8 @@
 # 列出文件及元数据
 import mutagen
 import os
+from mutagen import File
+from mutagen.id3 import ID3, APIC, error
 
 
 # Mutagen检查当前文件是否包含图片，没有图片->True
@@ -37,3 +39,9 @@ def search_music(path):
 
     traverse_directory(path)
     return musics_without_cover
+
+
+def insert(path, image):
+    # 这里的image是图片对象，从网络下载
+    audio = ID3(path)
+    apic = APIC(encoding=3, mime='image/jpeg', type=3, desc=u'Front Cover', data=image)
